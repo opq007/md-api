@@ -1,0 +1,11 @@
+services:
+  md-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Comma separated ModelScope access tokens.
+      MODELSCOPE_TOKENS: ${MODELSCOPE_TOKENS}
+      # The key clients must send as "Authorization: Bearer <key>".
+      PROXY_API_KEY: ${PROXY_API_KEY}
+    restart: unless-stopped
